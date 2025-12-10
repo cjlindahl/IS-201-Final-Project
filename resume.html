@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Carson Lindahl – Resume</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+  <style>
+    :root {
+      --bg-color: #f4f7fb;
+      --card-bg: #ffffff;
+      --primary: #1f4f7c;
+      --primary-light: #2f6fa8;
+      --accent: #2c7bbf;
+      --text-main: #333333;
+      --text-muted: #6f7b8a;
+      --border-light: #dde4ef;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top left, #e5edf8, var(--bg-color));
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 16px 48px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .name {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--primary);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .tagline {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .contact {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 16px;
+    }
+
+    .contact span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .contact-label {
+      font-weight: 500;
+      color: var(--primary-light);
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .section-card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      padding: 20px 22px;
+      border: 1px solid var(--border-light);
+      box-shadow: 0 10px 25px rgba(12, 38, 76, 0.04);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(44, 123, 191, 0.04),
+        transparent 60%
+      );
+      pointer-events: none;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    .section-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .edu-degree-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 8px 18px;
+      margin-bottom: 4px;
+    }
+
+    .edu-school {
+      font-weight: 600;
+      color: var(--primary-light);
+    }
+
+    .edu-location {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    .edu-meta {
+      font-size: 0.94rem;
+      margin-top: 6px;
+    }
+
+    .bullet-list {
+      list-style: none;
+      margin-top: 8px;
+    }
+
+    .bullet-list li {
+      position: relative;
+      padding-left: 18px;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 4px;
+      top: 0;
+      color: var(--accent);
+      font-size: 0.8rem;
+      line-height: 1.8;
+    }
+
+    .job-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 4px 10px;
+      margin-bottom: 6px;
+    }
+
+    .job-role {
+      font-weight: 600;
+      color: var(--primary-light);
+    }
+
+    .job-company {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+    }
+
+    .job-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .pill {
+      border-radius: 999px;
+      border: 1px solid var(--border-light);
+      padding: 3px 10px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--primary);
+      background: #f3f6fb;
+    }
+
+    .skills-columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px 30px;
+      margin-top: 8px;
+    }
+
+    .skills-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--primary-light);
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .skills-list {
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+
+    .skills-list span {
+      display: inline-block;
+      margin-right: 10px;
+      margin-bottom: 4px;
+    }
+
+    .tag-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #e3edf9;
+      color: var(--primary-light);
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin: 0 6px 6px 0;
+    }
+
+    /* Fade-in animation */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        margin-top: 24px;
+      }
+      .section-card {
+        padding: 16px 16px 18px;
+      }
+      .name {
+        font-size: 2rem;
+      }
+      .section-title {
+        font-size: 0.98rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="name">Carson Lindahl</div>
+      <div class="tagline">Student &amp; Emerging DeFi Professional</div>
+      <div class="contact">
+        <span>
+          <span class="contact-label">Location</span> Provo, UT &bull; 262 E 100 S St
+        </span>
+        <span>
+          <span class="contact-label">Phone</span> (303) 548-0431
+        </span>
+        <span>
+          <span class="contact-label">Email</span> <a href="mailto:carsonlindahl@gmail.com">carsonlindahl@gmail.com</a>
+        </span>
+      </div>
+    </header>
+
+    <main>
+      <!-- Education Block -->
+      <section class="section-card fade-section" id="education">
+        <div class="section-header">
+          <h2 class="section-title">Education</h2>
+          <div class="section-subtitle">Academic Foundation</div>
+        </div>
+        <div class="edu-degree-row">
+          <div>
+            <div class="edu-school">Brigham Young University</div>
+            <div class="edu-location">Provo, UT</div>
+          </div>
+          <div class="pill">Pre-Business &mdash; Apr 2029</div>
+        </div>
+        <div class="edu-meta">
+          Overall GPA: <strong>3.90 / 4.00</strong> &nbsp;&nbsp;|&nbsp;&nbsp;
+          ACT: <strong>32 / 36 (97th Percentile)</strong>
+        </div>
+        <div class="edu-meta" style="margin-top: 8px;">
+          <strong>Relevant Coursework:</strong> Principles of Finance; Introduction to Accounting;
+          Principles of Economics
+        </div>
+      </section>
+
+      <!-- Experience Blocks -->
+      <section class="section-card fade-section" id="dastan">
+        <div class="section-header">
+          <h2 class="section-title">Experience</h2>
+          <div class="section-subtitle">Professional Roles</div>
+        </div>
+        <div class="job-header">
+          <div>
+            <div class="job-role">DCM Project Manager</div>
+            <div class="job-company">DASTAN &mdash; Lisbon, Portugal</div>
+          </div>
+          <div class="job-meta">
+            <span>Aug 2024 &ndash; Present</span>
+          </div>
+        </div>
+        <ul class="bullet-list">
+            <li>Leads one of the first attempts to bring a decentralized, AMM-based prediction market into the U.S. regulatory system.</li>
+            <li>Works directly with DASTAN CEO Loxley Fernandes on structuring a pioneering CFTC DCM application.</li>
+            <li>Collaborates with former CFTC Chairman Chris Giancarlo to align decentralized market design with U.S. regulation.</li>
+            <li>Coordinates legal, regulatory, and engineering teams to prepare the industry’s first decentralized DCM filing.</li>
+            <li>Researches AMMs, derivatives, and blockchain finance to support long-term product and regulatory strategy.</li>
+        </ul>
+      </section>
+
+      <section class="section-card fade-section" id="byu-custodian">
+        <div class="job-header">
+          <div>
+            <div class="job-role">Custodian</div>
+            <div class="job-company">Brigham Young University &mdash; Student Center Custodial, Provo, UT</div>
+          </div>
+          <div class="job-meta">
+            <span>Sept 2024 &ndash; Jul 2025</span>
+          </div>
+        </div>
+        <ul class="bullet-list">
+          <li>Maintained responsibility for securing and preparing facilities used by thousands of students daily.</li>
+          <li>Implemented efficient routines to complete tasks ahead of schedule, improving team productivity.</li>
+          <li>Identified and resolved issues quickly, strengthening problem-solving and risk management skills.</li>
+          <li>Coordinated with team members to meet deadlines and ensure high-quality results.</li>
+        </ul>
+      </section>
+
+      <section class="section-card fade-section" id="nft-company">
+        <div class="job-header">
+          <div>
+            <div class="job-role">Community Outreach &amp; Moderation</div>
+            <div class="job-company">NFT Investment Company &mdash; Denver, CO</div>
+          </div>
+          <div class="job-meta">
+            <span>Jan 2022 &ndash; Apr 2022</span>
+          </div>
+        </div>
+        <ul class="bullet-list">
+          <li>Built a professional-looking Discord community from scratch.</li>
+          <li>Monitored the community and promoted education through consistent interactions with members.</li>
+          <li>Marketed the project to other online Web 3.0 communities and brought in investors.</li>
+          <li>Helped raise nearly $30,000 in the first month of the project through community investment.</li>
+        </ul>
+      </section>
+
+      <section class="section-card fade-section" id="mens-wearhouse">
+        <div class="job-header">
+          <div>
+            <div class="job-role">Sales Associate</div>
+            <div class="job-company">Men&rsquo;s Wearhouse (Fine Clothing Retailer) &mdash; Denver, CO</div>
+          </div>
+          <div class="job-meta">
+            <span>Oct 2021 &ndash; May 2022</span>
+          </div>
+        </div>
+        <ul class="bullet-list">
+          <li>Assisted customers with purchasing and renting fine clothing for important life events.</li>
+          <li>Contributed to a healthy store environment that was welcoming and service-oriented.</li>
+          <li>Helped shift team culture from negative gossip to positive support and collaboration.</li>
+        </ul>
+      </section>
+
+      <!-- Leadership & Service Block -->
+      <section class="section-card fade-section" id="leadership">
+        <div class="section-header">
+          <h2 class="section-title">Leadership &amp; Service</h2>
+          <div class="section-subtitle">Global Experience</div>
+        </div>
+        <div class="job-header" style="margin-bottom: 4px;">
+          <div>
+            <div class="job-role">Volunteer Representative</div>
+            <div class="job-company">The Church of Jesus Christ of Latter-day Saints &mdash; Budapest, Hungary</div>
+          </div>
+          <div class="job-meta">
+            <span>Jun 2022 &ndash; Jun 2024</span>
+          </div>
+        </div>
+        <ul class="bullet-list">
+          <li>Planned logistics for the immigration of dozens of volunteers and handled legal processes required for their stay.</li>
+          <li>Organized and assisted in running country-wide events for volunteers and Hungarian citizens.</li>
+          <li>Improved relationships with the community by directing and meeting with political leaders in Hungary.</li>
+          <li>Collaborated with diverse partners from around the world to enhance volunteer performance.</li>
+        </ul>
+      </section>
+
+      <!-- Skills & Interests Block -->
+      <section class="section-card fade-section" id="skills-interests">
+        <div class="section-header">
+          <h2 class="section-title">Skills &amp; Interests</h2>
+          <div class="section-subtitle">Capabilities &amp; Passions</div>
+        </div>
+        <div class="skills-columns">
+          <div>
+            <div class="skills-label">Skills</div>
+            <div class="skills-list">
+              <div class="tag-chip">Proficient in Hungarian</div>
+              <div class="tag-chip">Personal Investing (9+ Years)</div>
+              <div class="tag-chip">AI Prompting for Complex Tasks</div>
+            </div>
+          </div>
+          <div>
+            <div class="skills-label">Awards &amp; Activities</div>
+            <div class="skills-list">
+              <span>Colorado All-State Jazz Choir (2022)</span><br />
+            </div>
+          </div>
+          <div>
+            <div class="skills-label">Interests</div>
+            <div class="skills-list">
+              <span>Artificial intelligence</span><br />
+              <span>Blockchain &amp; cryptocurrency</span><br />
+              <span>Continuous learning and personal development</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Simple fade-in on scroll using IntersectionObserver
+    document.addEventListener("DOMContentLoaded", function () {
+      const sections = document.querySelectorAll(".fade-section");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              // Once visible, stop observing to avoid repeated triggers
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.15,
+        }
+      );
+
+      sections.forEach((section) => observer.observe(section));
+    });
+  </script>
+</body>
+</html>
